@@ -4,570 +4,461 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Lumen — Ideas are the beginning of every revolution. An independent platform for social awareness, economics, law, poetry and independent thought.">
-
 <title>LUMEN. — Where Thought Transcends Boundaries</title>
+<meta name="description" content="An independent platform for ideas, awareness, law, economics and creative expression.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --cream: #faf8f1;
-  --paper: #fffdf8;
-  --green: #536b57;
-  --dark-green: #263d30;
-  --sage: #dce5d7;
-  --pink: #e9c5c5;
-  --gold: #ad9564;
-  --ink: #303b32;
-  --muted: #777d72;
-  --line: #e8e5da;
+  --green: #294b39;
+  --sage: #829b79;
+  --pink: #e8b7c1;
+  --cream: #fffaf1;
+  --gold: #b99a62;
+  --ink: #34443a;
+  --muted: #6d786c;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--cream);
+  margin: 0;
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.8;
-  overflow-x: hidden;
+  background: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.75;
 }
 
-a {
-  color: inherit;
+a { color: inherit; text-decoration: none; }
+
+nav {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  color: white;
+  background: linear-gradient(to bottom, rgba(30,55,42,.35), transparent);
 }
 
-/* FALLING FLOWERS AND LEAVES */
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
 
-#petals {
-  position: fixed;
-  inset: 0;
+.nav-links {
+  display: flex;
+  gap: 25px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.nav-links a {
+  text-shadow: 0 1px 5px rgba(0,0,0,.25);
+  transition: opacity .2s;
+}
+
+.nav-links a:hover { opacity: .7; }
+
+.menu-button {
+  display: none;
+  color: white;
+  border: 1px solid rgba(255,255,255,.6);
+  background: rgba(35,60,43,.25);
+  padding: 8px 13px;
+  border-radius: 20px;
+  font: inherit;
+}
+
+/* SPRING LANDSCAPE HERO */
+
+.hero {
+  min-height: 790px;
+  height: 100vh;
+  max-height: 980px;
+  position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #a9d7e8;
+}
+
+.landscape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(22,45,35,.05) 0%,
+    rgba(22,45,35,.05) 45%,
+    rgba(22,45,35,.25) 100%
+  );
   pointer-events: none;
-  z-index: 20;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  margin-top: 40px;
+  padding: 30px 24px;
+  max-width: 850px;
+  color: white;
+  text-shadow: 0 2px 15px rgba(28,48,35,.45);
+}
+
+.hero-kicker {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  line-height: 1;
+  letter-spacing: 8px;
+  margin: 15px 0 5px;
+}
+
+.hero h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.6vw, 1.8rem);
+  margin: 10px 0 28px;
+}
+
+.hero blockquote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 0 auto 25px;
+}
+
+.hero-description {
+  max-width: 590px;
+  margin: auto;
+  font-size: 1rem;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 27px;
+  border: 1px solid rgba(255,255,255,.85);
+  border-radius: 30px;
+  color: white;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: .25s;
+  background: rgba(39,70,48,.25);
+  backdrop-filter: blur(5px);
+}
+
+.hero-button:hover {
+  background: white;
+  color: var(--green);
+  text-shadow: none;
+}
+
+/* FALLING PETALS */
+
+.petals {
+  position: absolute;
+  z-index: 2;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .petal {
   position: absolute;
   top: -35px;
-  opacity: 0;
+  color: #fff0f3;
+  opacity: .85;
+  font-size: 18px;
   animation: fall linear infinite;
-  user-select: none;
 }
 
 @keyframes fall {
-  0% {
-    transform: translate3d(0,-20px,0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: .7;
-  }
-  85% {
-    opacity: .55;
-  }
-  100% {
-    transform: translate3d(var(--drift),110vh,0)
-      rotate(var(--rotation));
-    opacity: 0;
-  }
+  0% { transform: translateY(-30px) rotate(0deg); }
+  100% { transform: translateY(105vh) rotate(500deg); }
 }
 
-/* NAVIGATION */
+/* GENERAL CONTENT */
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(250,248,241,.94);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-
-.navbar {
-  max-width: 1250px;
+main {
+  max-width: 1120px;
   margin: auto;
-  padding: 13px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0 28px;
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 27px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-decoration: none;
-  color: var(--dark-green);
+.section {
+  padding: 95px 0;
+  scroll-margin-top: 30px;
 }
 
-.logo span {
-  color: var(--gold);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--ink);
-  transition: color .3s;
-}
-
-nav a:hover {
-  color: var(--gold);
-}
-
-.menu-button {
-  display: none;
-  background: transparent;
-  border: 1px solid var(--line);
-  padding: 5px 12px;
-  font-size: 20px;
-  color: var(--green);
-  cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 690px;
-  padding: 110px 8% 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.section-heading {
   text-align: center;
-  position: relative;
-  background:
-    radial-gradient(ellipse at 15% 20%, #e8eddf 0%, transparent 35%),
-    radial-gradient(ellipse at 85% 80%, #f2e1dc 0%, transparent 35%),
-    var(--paper);
-}
-
-.hero-content {
-  max-width: 850px;
-  animation: appear 1.2s ease both;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-bottom: 48px;
 }
 
 .eyebrow {
-  color: var(--green);
-  font-size: 10px;
-  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold);
   letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(65px, 12vw, 125px);
-  font-weight: 400;
-  letter-spacing: 12px;
-  line-height: 1.2;
-  color: var(--dark-green);
-}
-
-.hero h1 span {
-  color: var(--gold);
-}
-
-.hero h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 4vw, 35px);
-  font-weight: 400;
-  font-style: italic;
-  margin-top: 18px;
-  line-height: 1.5;
-}
-
-.hero .punchline {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  color: var(--green);
-  margin-top: 36px;
-}
-
-.hero p {
-  max-width: 660px;
-  margin: 20px auto 0;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.explore {
-  display: inline-block;
-  margin-top: 36px;
-  padding: 13px 30px;
-  border: 1px solid var(--green);
-  color: var(--green);
-  text-decoration: none;
-  font-size: 11px;
+  font-size: .75rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  transition: .3s;
 }
 
-.explore:hover {
-  background: var(--green);
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* SECTIONS */
-
-.section {
-  max-width: 1160px;
-  margin: auto;
-  padding: 105px 7%;
-}
-
-.section-label {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 5vw, 51px);
-  font-weight: 400;
-  color: var(--dark-green);
+h2, h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
   line-height: 1.3;
-  margin: 13px 0 20px;
 }
 
-.section-intro {
-  max-width: 750px;
+.section-heading h2 {
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  margin: 10px 0;
+}
+
+.section-heading p {
   color: var(--muted);
-  font-size: 16px;
+  max-width: 650px;
+  margin: auto;
 }
 
-/* DOMAIN CARDS */
+.intro {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  font-size: 1.08rem;
+}
+
+.intro p { margin: 15px 0; }
+
+.quote-line {
+  font-family: "Playfair Display", serif;
+  color: var(--green);
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  margin: 35px auto;
+}
+
+/* FOUR SECTION CARDS */
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 24px;
-  margin-top: 48px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
 }
 
 .card {
-  position: relative;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: 38px;
-  text-decoration: none;
-  display: block;
-  transition: transform .35s, box-shadow .35s, border-color .35s;
-  overflow: hidden;
-}
-
-.card::after {
-  content: "✿";
-  position: absolute;
-  right: 15px;
-  bottom: -22px;
-  font-size: 100px;
-  color: var(--sage);
-  opacity: .35;
-  pointer-events: none;
-  transition: transform .5s;
+  padding: 32px;
+  border-radius: 18px;
+  background: #fffdf8;
+  border: 1px solid #e9e4d7;
+  box-shadow: 0 8px 25px rgba(50,70,45,.06);
+  transition: transform .25s, box-shadow .25s;
 }
 
 .card:hover {
-  transform: translateY(-7px);
-  border-color: #b9c7b2;
-  box-shadow: 0 14px 35px rgba(48,65,48,.08);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 32px rgba(50,70,45,.11);
 }
 
-.card:hover::after {
-  transform: rotate(25deg) scale(1.15);
-}
-
-.card .number {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
+.card-number {
   color: var(--gold);
+  font-size: .8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 27px;
-  font-weight: 400;
-  color: var(--dark-green);
-  margin: 16px 0 12px;
+  font-size: 1.55rem;
+  margin: 10px 0 5px;
 }
 
-.card .subtitle {
-  font-family: 'Playfair Display', serif;
+.card-tagline {
+  color: #829477;
+  font-family: "Playfair Display", serif;
   font-style: italic;
-  font-size: 16px;
-  color: var(--green);
-  margin-bottom: 13px;
+  margin-bottom: 16px;
 }
 
 .card p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: .94rem;
+  margin-bottom: 0;
 }
 
-.card .arrow {
+.card-link {
   display: inline-block;
-  margin-top: 22px;
-  font-size: 11px;
+  margin-top: 20px;
+  color: var(--green);
+  font-size: .85rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--green);
 }
 
-/* CONTENT PANELS */
-
-.content-panel {
-  padding: 75px 8%;
-  background: #e9eee4;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+.content-section {
+  padding: 75px 0;
+  border-top: 1px solid #e9e3d6;
+  scroll-margin-top: 35px;
 }
 
-.content-panel.pink {
-  background: #f4eae5;
+.content-section h2 {
+  font-size: 2.2rem;
+  margin: 0 0 8px;
 }
 
-.panel-inner {
-  max-width: 900px;
-  margin: auto;
+.content-section h3 {
+  font-size: 1.25rem;
+  margin: 25px 0 8px;
 }
 
-.panel-inner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 5vw, 45px);
-  font-weight: 400;
-  color: var(--dark-green);
-  margin-bottom: 22px;
-}
+.content-section p { color: var(--muted); }
 
-.panel-inner p {
-  color: #667064;
-  margin-bottom: 15px;
-}
-
-.panel-inner ul {
+.content-section ul {
+  color: var(--muted);
   padding-left: 22px;
-  margin: 15px 0 22px;
-  color: #59675b;
 }
 
-.panel-inner li {
-  padding: 3px 0;
-}
-
-.panel-inner .closing {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 18px;
-  color: var(--green);
-  margin-top: 25px;
-}
-
-/* WHY LUMEN */
+.content-section li { padding: 4px 0; }
 
 .why {
-  padding: 110px 8%;
+  background: #edf1e7;
+  border-radius: 24px;
+  padding: 55px;
+  margin: 20px 0 75px;
   text-align: center;
-  background: var(--dark-green);
-  color: var(--cream);
 }
 
 .why h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(35px, 6vw, 55px);
-  font-weight: 400;
-  margin-bottom: 35px;
+  font-size: 2.4rem;
+  margin-top: 0;
 }
 
 .why p {
   max-width: 700px;
-  margin: 14px auto;
-  color: #e1e5dc;
-  font-size: 16px;
+  margin: 12px auto;
+  color: #657366;
 }
-
-.why .final-line {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 21px;
-  color: #e6d5b0;
-  margin-top: 30px;
-}
-
-/* PHILOSOPHY */
 
 .philosophy {
-  padding: 100px 8%;
   text-align: center;
-  background: var(--paper);
+  padding: 75px 20px;
+  background: #f7e9e9;
+  border-radius: 24px;
+  margin-bottom: 75px;
 }
 
 .philosophy h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(29px, 5vw, 43px);
-  font-weight: 400;
-  font-style: italic;
+  font-size: 2.3rem;
+}
+
+.philosophy .motto {
+  font-family: "Playfair Display", serif;
   color: var(--green);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-style: italic;
 }
 
-.philosophy p {
-  max-width: 700px;
-  margin: 20px auto 0;
-  color: var(--muted);
+.founder {
+  text-align: center;
+  padding: 60px 20px 80px;
 }
 
-/* FOOTER */
+.founder h2 { font-size: 2.3rem; }
+
+.founder strong { color: var(--green); }
 
 footer {
-  padding: 65px 8% 35px;
-  background: #e8ede3;
   text-align: center;
-}
-
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  letter-spacing: 6px;
-  color: var(--dark-green);
+  padding: 30px 20px;
+  background: #294b39;
+  color: #f8f4e9;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
 }
 
 footer p {
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 10px;
-}
-
-footer .footer-tag {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: var(--green);
-  margin-top: 22px;
-}
-
-footer .copyright {
-  margin-top: 35px;
-  font-size: 11px;
-}
-
-/* REVEAL ANIMATION */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+  margin: 5px;
+  font-size: .9rem;
 }
 
 /* MOBILE */
 
-@media(max-width: 750px) {
-  .navbar {
-    padding: 12px 6%;
-    flex-wrap: wrap;
-  }
-
-  .menu-button {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    align-items: stretch;
-    gap: 0;
-    padding-top: 12px;
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  nav a {
-    padding: 12px 0;
-    border-top: 1px solid var(--line);
-  }
-
+@media (max-width: 760px) {
   .hero {
-    min-height: 610px;
-    padding: 85px 7%;
+    min-height: 720px;
+    height: 100svh;
   }
 
-  .hero h1 {
-    letter-spacing: 6px;
+  nav { padding: 17px 6%; }
+
+  .logo { font-size: 1.5rem; }
+
+  .menu-button { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 6%;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    background: rgba(41,75,57,.94);
+    border-radius: 15px;
   }
 
-  .hero .punchline {
-    font-size: 18px;
-  }
+  .nav-links.open { display: flex; }
 
-  .cards {
-    grid-template-columns: 1fr;
-  }
+  .hero-content { margin-top: 65px; }
 
-  .section {
-    padding: 75px 7%;
-  }
+  .hero h1 { letter-spacing: 4px; }
 
-  .card {
-    padding: 30px;
-  }
+  .hero-description { font-size: .9rem; }
+
+  .cards { grid-template-columns: 1fr; }
+
+  .section { padding: 70px 0; }
+
+  .card { padding: 25px; }
+
+  .why { padding: 35px 23px; }
+
+  .landscape { width: 150%; left: -25%; }
 }
 
-@media(prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
     transition-duration: .01ms !important;
-  }
-
-  .petal {
-    display: none;
   }
 }
 </style>
@@ -575,192 +466,284 @@ footer .copyright {
 
 <body>
 
-<div id="petals" aria-hidden="true"></div>
-
-<header>
-  <div class="navbar">
-    <a class="logo" href="#home">LUMEN<span>.</span></a>
-
-    <button class="menu-button" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
-
-    <nav id="navigation">
-      <a href="#home" onclick="closeMenu()">HOME</a>
-      <a href="#social" onclick="closeMenu()">SOCIAL VOICE</a>
-      <a href="#economics" onclick="closeMenu()">ECONOMICS</a>
-      <a href="#law" onclick="closeMenu()">LAW</a>
-      <a href="#about" onclick="closeMenu()">ABOUT ME</a>
-    </nav>
+<nav>
+  <a class="logo" href="#home">LUMEN.</a>
+  <button class="menu-button" onclick="toggleMenu()">MENU ☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#social">Social Voice</a>
+    <a href="#economics">Economics</a>
+    <a href="#law">Law</a>
+    <a href="#founder">Founder</a>
   </div>
+</nav>
+
+<header class="hero" id="home">
+
+<!-- THE LANDSCAPE IS DRAWN DIRECTLY IN SVG -->
+<svg class="landscape" viewBox="0 0 1440 850" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#8fc8e2"/>
+    <stop offset="65%" stop-color="#d7e9df"/>
+    <stop offset="100%" stop-color="#f4e8d5"/>
+  </linearGradient>
+
+  <linearGradient id="meadow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#a5c88b"/>
+    <stop offset="100%" stop-color="#527b4e"/>
+  </linearGradient>
+
+  <linearGradient id="trunk" x1="0" y1="0" x2="1" y2="0">
+    <stop stop-color="#604638"/>
+    <stop offset="50%" stop-color="#9a7255"/>
+    <stop offset="100%" stop-color="#5d4435"/>
+  </linearGradient>
+
+  <radialGradient id="blossom">
+    <stop stop-color="#fff3f2"/>
+    <stop offset="65%" stop-color="#f4c4d0"/>
+    <stop offset="100%" stop-color="#df9eb2"/>
+  </radialGradient>
+
+  <g id="cloud" fill="#fffdf8" opacity=".85">
+    <ellipse cx="0" cy="20" rx="65" ry="22"/>
+    <circle cx="-35" cy="5" r="27"/>
+    <circle cx="0" cy="-5" r="36"/>
+    <circle cx="35" cy="7" r="27"/>
+  </g>
+
+  <g id="sheep">
+    <ellipse cx="0" cy="0" rx="30" ry="19" fill="#fffaf0"/>
+    <circle cx="-20" cy="-12" r="13" fill="#fffaf0"/>
+    <circle cx="-2" cy="-18" r="14" fill="#fffaf0"/>
+    <circle cx="16" cy="-13" r="13" fill="#fffaf0"/>
+    <ellipse cx="28" cy="-2" rx="13" ry="12" fill="#6b5147"/>
+    <circle cx="32" cy="-5" r="2" fill="#252b25"/>
+    <path d="M-18 14 V32 M-3 16 V33 M15 14 V32" stroke="#6b5147" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</defs>
+
+<!-- SKY -->
+<rect width="1440" height="850" fill="url(#sky)"/>
+
+<!-- SUN -->
+<circle cx="1120" cy="145" r="58" fill="#fff0c9" opacity=".7"/>
+<circle cx="1120" cy="145" r="85" fill="#fff0c9" opacity=".16"/>
+
+<!-- CLOUDS -->
+<use href="#cloud" x="230" y="150"/>
+<use href="#cloud" x="830" y="105" transform="scale(1.1)"/>
+<use href="#cloud" x="1260" y="260" transform="scale(.8)"/>
+
+<!-- DISTANT HILLS -->
+<path d="M0 485 Q180 370 360 465 T730 450 T1100 420 T1440 455 V850 H0Z" fill="#b5ceaa"/>
+<path d="M0 535 Q220 425 460 515 T900 485 T1440 520 V850 H0Z" fill="#91b27e"/>
+
+<!-- MAIN MEADOW -->
+<path d="M0 575 Q260 505 500 570 T1000 555 T1440 565 V850 H0Z" fill="url(#meadow)"/>
+
+<!-- FAR TREE LINE -->
+<g fill="#5f865b" opacity=".55">
+  <circle cx="65" cy="520" r="55"/>
+  <circle cx="125" cy="520" r="70"/>
+  <circle cx="1370" cy="515" r="75"/>
+  <circle cx="1300" cy="530" r="60"/>
+</g>
+
+<!-- CHERRY TREE TRUNK -->
+<path d="M370 700
+ C390 590 395 480 380 370
+ C360 280 300 240 250 180
+ C315 220 385 260 405 335
+ C435 260 495 215 560 170
+ C500 255 450 320 430 400
+ C425 500 455 610 480 700Z"
+ fill="url(#trunk)"/>
+
+<!-- TREE BRANCHES -->
+<g fill="none" stroke="#79563f" stroke-linecap="round">
+  <path d="M402 420 Q310 325 205 300" stroke-width="25"/>
+  <path d="M410 365 Q475 285 600 270" stroke-width="22"/>
+  <path d="M390 330 Q340 260 330 190" stroke-width="15"/>
+  <path d="M430 430 Q530 370 650 380" stroke-width="17"/>
+  <path d="M380 470 Q290 410 180 420" stroke-width="15"/>
+</g>
+
+<!-- CHERRY BLOSSOM CANOPY -->
+<g fill="url(#blossom)">
+  <circle cx="170" cy="250" r="100"/>
+  <circle cx="250" cy="185" r="115"/>
+  <circle cx="350" cy="155" r="110"/>
+  <circle cx="450" cy="190" r="115"/>
+  <circle cx="555" cy="220" r="100"/>
+  <circle cx="620" cy="300" r="85"/>
+  <circle cx="125" cy="340" r="75"/>
+  <circle cx="280" cy="330" r="95"/>
+  <circle cx="475" cy="320" r="95"/>
+  <circle cx="565" cy="355" r="65"/>
+</g>
+
+<!-- BLOSSOM DETAILS -->
+<g fill="#fff0f2" opacity=".9">
+  <circle cx="190" cy="200" r="12"/><circle cx="250" cy="150" r="10"/>
+  <circle cx="310" cy="220" r="13"/><circle cx="390" cy="145" r="11"/>
+  <circle cx="475" cy="205" r="12"/><circle cx="550" cy="265" r="11"/>
+  <circle cx="145" cy="310" r="10"/><circle cx="350" cy="300" r="12"/>
+  <circle cx="510" cy="345" r="10"/><circle cx="600" cy="320" r="11"/>
+</g>
+
+<!-- GRASS PATCHES -->
+<g stroke="#477447" stroke-width="3" fill="none" opacity=".8">
+  <path d="M90 720 l-10 -25 m10 25 l10 -30 M160 750 l-8 -25 m8 25 l12 -27"/>
+  <path d="M760 720 l-10 -25 m10 25 l10 -30 M900 750 l-8 -25 m8 25 l12 -27"/>
+  <path d="M1200 710 l-10 -25 m10 25 l10 -30 M1320 760 l-8 -25 m8 25 l12 -27"/>
+</g>
+
+<!-- SHEEP GRAZING -->
+<use href="#sheep" x="850" y="650" transform="scale(1.05)"/>
+<use href="#sheep" x="1050" y="705" transform="scale(.8)"/>
+<use href="#sheep" x="1250" y="635" transform="scale(.9)"/>
+<use href="#sheep" x="690" y="735" transform="scale(.65)"/>
+
+<!-- TWO PEOPLE RELAXING AGAINST THE TREE, READING -->
+<g stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Person one: seated, leaning against trunk -->
+  <path d="M390 650 Q355 620 345 570" stroke="#d6a47e" stroke-width="30" fill="none"/>
+  <circle cx="345" cy="545" r="20" fill="#d9a77f"/>
+  <path d="M327 542 Q322 510 352 516 Q371 530 359 548" fill="#493a35"/>
+  <path d="M347 565 Q375 570 380 620 L360 680 L305 680 L305 620Z" fill="#f1d3ce"/>
+  <path d="M320 670 L290 735 M350 675 L385 725" stroke="#314c40" stroke-width="17"/>
+  <path d="M380 605 Q405 615 435 640" stroke="#d9a77f" stroke-width="14" fill="none"/>
+
+  <!-- Person two -->
+  <circle cx="465" cy="550" r="20" fill="#c98f6e"/>
+  <path d="M445 547 Q435 515 470 518 Q492 530 480 548" fill="#493a35"/>
+  <path d="M448 570 Q420 580 420 625 L440 680 L500 680 L510 625 Q495 580 448 570Z" fill="#d9e4d0"/>
+  <path d="M445 670 L425 730 M480 670 L515 725" stroke="#526b53" stroke-width="17"/>
+  <path d="M430 600 Q400 615 385 640" stroke="#c98f6e" stroke-width="13" fill="none"/>
+
+  <!-- Shared open book -->
+  <path d="M365 620 Q395 603 420 620 L420 650 Q392 635 365 650Z" fill="#fff8e8" stroke="#a58a68" stroke-width="2"/>
+  <path d="M420 620 Q445 603 470 620 L470 650 Q445 635 420 650Z" fill="#fff8e8" stroke="#a58a68" stroke-width="2"/>
+  <path d="M420 620 V650" stroke="#a58a68" stroke-width="2"/>
+  <path d="M375 628 l30 -4 M375 637 l30 -4 M430 624 l28 4 M430 635 l28 4" stroke="#c8b9a1" stroke-width="1.5" fill="none"/>
+</g>
+
+<!-- FLOWERS IN THE FOREGROUND -->
+<g fill="#f6dce2">
+  <circle cx="70" cy="790" r="8"/><circle cx="85" cy="780" r="8"/>
+  <circle cx="100" cy="790" r="8"/><circle cx="85" cy="800" r="8"/>
+  <circle cx="1360" cy="780" r="8"/><circle cx="1375" cy="770" r="8"/>
+  <circle cx="1390" cy="780" r="8"/>
+</g>
+
+</svg>
+
+<div class="petals" id="petals"></div>
+
+<div class="hero-content">
+  <div class="hero-kicker">An independent platform</div>
+  <h1>LUMEN.</h1>
+  <h2>Where Thought Transcends Boundaries.</h2>
+  <blockquote>“Ideas are the beginning of every revolution.”</blockquote>
+  <p class="hero-description">
+    A space for ideas, awareness, knowledge and perspectives.
+    For those who question the crowd and think beyond what they're told.
+  </p>
+  <a class="hero-button" href="#about">Explore Lumen ↓</a>
+</div>
 </header>
 
 <main>
 
-<!-- HOMEPAGE -->
+<section class="section" id="about">
+  <div class="section-heading">
+    <div class="eyebrow">A little introduction</div>
+    <h2>Welcome to Lumen.</h2>
+  </div>
 
-<section class="hero" id="home">
-  <div class="hero-content">
+  <div class="intro">
+    <p>The world has enough people who follow the crowd. Lumen is for those who question it.</p>
 
-    <div class="eyebrow">An Independent Multidisciplinary Platform</div>
+    <p>Lumen is an independent platform built to share ideas, spread awareness, explore important issues and make knowledge easier to understand.</p>
 
-    <h1>LUMEN<span>.</span></h1>
-
-    <h2>Where Thought Transcends Boundaries.</h2>
-
-    <div class="punchline">
-      Ideas are the beginning of every revolution.
-    </div>
-
-    <p>
-      The world has enough people who follow the crowd.
-      Lumen is for those who question it.
-    </p>
-
-    <p>
-      Lumen is an independent platform built to share ideas,
-      spread awareness, explore important issues and make
-      knowledge easier to understand.
-    </p>
-
-    <p>
-      From poetry and social campaigns to law and economics,
-      this is a space for different interests, different
-      perspectives and one common purpose: to think beyond
-      what we're told.
-    </p>
-
-    <a class="explore" href="#domains">EXPLORE LUMEN ↓</a>
+    <p>From poetry and social campaigns to law and economics, this is a space for different interests, different perspectives and one common purpose: to think beyond what we're told.</p>
   </div>
 </section>
 
-<!-- FOUR DOMAINS -->
-
-<section class="section" id="domains">
-  <div class="section-label">A WORLD OF DIFFERENT IDEAS</div>
-  <h2>What you'll find here.</h2>
-
-  <p class="section-intro">
-    Four different spaces. Four different areas of thought.
-    One platform.
-  </p>
+<section class="section" id="sections">
+  <div class="section-heading">
+    <div class="eyebrow">Explore the platform</div>
+    <h2>What You'll Find Here</h2>
+    <p>Four different spaces. One common purpose: curiosity.</p>
+  </div>
 
   <div class="cards">
 
     <a class="card" href="#social">
-      <div class="number">01 / SOCIAL VOICE</div>
+      <div class="card-number">01 / THE SOCIAL VOICE</div>
       <h3>The Social Voice</h3>
-      <div class="subtitle">Words, awareness and a little rebellion.</div>
-      <p>
-        Feminism, human rights, social justice, poetry,
-        creative writing and campaigns that deserve attention.
-      </p>
-      <span class="arrow">EXPLORE THIS SECTION →</span>
+      <div class="card-tagline">Words, awareness and a little rebellion.</div>
+      <p>Poetry, social awareness, feminism, human rights, creative writing and opinions that deserve to be heard.</p>
+      <span class="card-link">Explore this section →</span>
     </a>
 
     <a class="card" href="#economics">
-      <div class="number">02 / ECONOMICS</div>
+      <div class="card-number">02 / THE ECONOMICS DESK</div>
       <h3>The Economics Desk</h3>
-      <div class="subtitle">Understanding the systems that shape our lives.</div>
-      <p>
-        Economic systems, policies, inflation, inequality,
-        research and the relationship between money and society.
-      </p>
-      <span class="arrow">EXPLORE THIS SECTION →</span>
+      <div class="card-tagline">Understanding the systems that shape our lives.</div>
+      <p>Economic systems, inflation, global economies, inequality, research and the relationship between money and society.</p>
+      <span class="card-link">Explore this section →</span>
     </a>
 
     <a class="card" href="#law">
-      <div class="number">03 / LAW</div>
+      <div class="card-number">03 / THE LAW DESK</div>
       <h3>The Law Desk</h3>
-      <div class="subtitle">Know your rights. Understand the rules.</div>
-      <p>
-        Fundamental rights, constitutional principles,
-        legal awareness, justice and legal research.
-      </p>
-      <span class="arrow">EXPLORE THIS SECTION →</span>
+      <div class="card-tagline">Know your rights. Understand the rules. Question the system.</div>
+      <p>Fundamental rights, constitutional principles, legal awareness, justice and important legal developments.</p>
+      <span class="card-link">Explore this section →</span>
     </a>
 
-    <a class="card" href="#about">
-      <div class="number">04 / THE INDIVIDUAL</div>
+    <a class="card" href="#person">
+      <div class="card-number">04 / THE PERSON BEHIND LUMEN</div>
       <h3>The Person Behind Lumen</h3>
-      <div class="subtitle">Every platform begins with a person and an idea.</div>
-      <p>
-        Personal interests, academic aspirations, achievements,
-        creative interests and reflections.
-      </p>
-      <span class="arrow">GET TO KNOW ME →</span>
+      <div class="card-tagline">Every platform begins with a person and an idea.</div>
+      <p>Personal interests, academic aspirations, achievements, creative projects and reflections.</p>
+      <span class="card-link">Explore this section →</span>
     </a>
 
   </div>
 </section>
 
-<!-- SOCIAL VOICE -->
+<section class="content-section" id="social">
+  <div class="eyebrow">01 / The Social Voice</div>
+  <h2>Words, awareness and a little rebellion.</h2>
+  <p>Not everything needs to be dressed up in complicated words to make a point.</p>
 
-<section class="content-panel reveal" id="social">
-  <div class="panel-inner">
+  <p>This section covers:</p>
+  <ul>
+    <li>Feminism and gender equality.</li>
+    <li>Human rights and social justice.</li>
+    <li>Social awareness campaigns.</li>
+    <li>Poetry and creative writing.</li>
+    <li>Personal opinions and social commentary.</li>
+    <li>Issues that deserve more attention.</li>
+  </ul>
 
-    <div class="section-label">01 / THE SOCIAL VOICE</div>
-
-    <h2>Words, awareness and a little rebellion.</h2>
-
-    <p>
-      Not everything needs to be dressed up in complicated
-      words to make a point.
-    </p>
-
-    <p>This section covers:</p>
-
-    <ul>
-      <li>Feminism and gender equality.</li>
-      <li>Human rights and social justice.</li>
-      <li>Social awareness campaigns.</li>
-      <li>Poetry and creative writing.</li>
-      <li>Personal opinions and social commentary.</li>
-      <li>Issues that deserve more attention.</li>
-    </ul>
-
-    <p class="closing">
-      Some things need research. Some need discussion.
-      And some simply need to be said.
-    </p>
-
-  </div>
+  <p>Some things need research. Some need discussion. And some simply need to be said.</p>
 </section>
 
-<!-- ECONOMICS -->
-
-<section class="section reveal" id="economics">
-
-  <div class="section-label">02 / THE ECONOMICS DESK</div>
-
+<section class="content-section" id="economics">
+  <div class="eyebrow">02 / The Economics Desk</div>
   <h2>Understanding the systems that shape our lives.</h2>
+  <p>Economics isn't just about money. It affects almost everything around us.</p>
 
-  <p class="section-intro">
-    Economics isn't just about money. It affects almost
-    everything around us.
-  </p>
-
-  <div class="cards">
-
-    <article class="card">
-      <div class="number">ECONOMIC SYSTEMS</div>
-      <h3>Policies & Systems</h3>
-      <p>Economic systems, policies and the decisions
-      that influence everyday life.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">GLOBAL & NATIONAL ECONOMIES</div>
-      <h3>Money & Society</h3>
-      <p>Inflation, financial issues, poverty, inequality
-      and the relationship between money, power and society.</p>
-    </article>
-
-  </div>
-
-  <p class="section-intro" style="margin-top:35px">
-    This section explores:
-  </p>
-
-  <ul style="padding-left:22px; margin-top:15px; color:var(--muted)">
+  <p>This section explores:</p>
+  <ul>
     <li>Economic systems and policies.</li>
     <li>Inflation and financial issues.</li>
     <li>Global and national economies.</li>
@@ -769,230 +752,107 @@ footer .copyright {
     <li>The relationship between money, power and society.</li>
   </ul>
 
-  <p class="section-intro" style="margin-top:25px">
-    The aim is simple: understand the numbers, question
-    the decisions and look beyond the headlines.
-  </p>
-
+  <p>The aim is simple: understand the numbers, question the decisions and look beyond the headlines.</p>
 </section>
 
-<!-- LAW -->
+<section class="content-section" id="law">
+  <div class="eyebrow">03 / The Law Desk</div>
+  <h2>Know your rights. Understand the rules. Question the system.</h2>
+  <p>Law affects everyone, whether they realise it or not.</p>
 
-<section class="content-panel pink reveal" id="law">
-  <div class="panel-inner">
+  <p>This section focuses on:</p>
+  <ul>
+    <li>Fundamental rights and freedoms.</li>
+    <li>Constitutional principles.</li>
+    <li>Legal awareness.</li>
+    <li>Justice and equality before the law.</li>
+    <li>Important laws and legal developments.</li>
+    <li>Legal research and analysis.</li>
+  </ul>
 
-    <div class="section-label">03 / THE LAW DESK</div>
-
-    <h2>Know your rights. Understand the rules. Question the system.</h2>
-
-    <p>
-      Law affects everyone, whether they realise it or not.
-    </p>
-
-    <p>This section focuses on:</p>
-
-    <ul>
-      <li>Fundamental rights and freedoms.</li>
-      <li>Constitutional principles.</li>
-      <li>Legal awareness.</li>
-      <li>Justice and equality before the law.</li>
-      <li>Important laws and legal developments.</li>
-      <li>Legal research and analysis.</li>
-    </ul>
-
-    <p class="closing">
-      Because knowing the law shouldn't be limited to
-      people who study it.
-    </p>
-
-  </div>
+  <p>Because knowing the law shouldn't be limited to people who study it.</p>
 </section>
 
-<!-- ABOUT ME -->
-
-<section class="section reveal" id="about">
-
-  <div class="section-label">04 / THE PERSON BEHIND LUMEN</div>
-
+<section class="content-section" id="person">
+  <div class="eyebrow">04 / The Person Behind Lumen</div>
   <h2>Every platform begins with a person and an idea.</h2>
+  <p>A little about the person who started this project.</p>
 
-  <p class="section-intro">
-    A little about the person who started this project.
-  </p>
+  <p>This section will feature:</p>
+  <ul>
+    <li>Personal interests and opinions.</li>
+    <li>Academic journey and aspirations.</li>
+    <li>Achievements and projects.</li>
+    <li>Creative interests.</li>
+    <li>Personal reflections and experiences.</li>
+  </ul>
 
-  <div class="cards">
-
-    <article class="card">
-      <div class="number">THE INDIVIDUAL</div>
-      <h3>Personal Interests</h3>
-      <p>Personal interests and opinions, creative interests
-      and personal reflections.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">THE JOURNEY</div>
-      <h3>Growth & Ambition</h3>
-      <p>Academic journey and aspirations, achievements
-      and projects.</p>
-    </article>
-
-  </div>
-
-  <p class="section-intro" style="margin-top:35px">
-    Lumen is more than a collection of subjects.
-    It is also a record of curiosity, growth and ambition.
-  </p>
-
+  <p>Lumen is more than a collection of subjects. It is also a record of curiosity, growth and ambition.</p>
 </section>
 
-<!-- WHY LUMEN -->
-
-<section class="why reveal">
-
-  <div class="section-label" style="color:#d9c39a">THE PURPOSE</div>
-
+<section class="why">
+  <div class="eyebrow">The reason behind the platform</div>
   <h2>Why Lumen?</h2>
 
   <p>Because asking questions should never be discouraged.</p>
-
   <p>Because awareness should be accessible.</p>
-
   <p>Because knowledge shouldn't be hidden behind complicated language.</p>
-
-  <p>
-    And because having an opinion means very little without
-    the willingness to understand what you're talking about.
-  </p>
-
-  <p class="final-line">
-    We don't claim to have every answer.
-    We believe in asking better questions.
-  </p>
-
+  <p>And because having an opinion means very little without the willingness to understand what you're talking about.</p>
+  <p>We don't claim to have every answer. We believe in asking better questions.</p>
 </section>
 
-<!-- PHILOSOPHY -->
-
-<section class="philosophy reveal">
-
-  <div class="section-label">THE PHILOSOPHY</div>
-
-  <h2>Question more. Understand deeper. Think beyond.</h2>
-
-  <p>
-    Ideas deserve to be heard. Opinions deserve to be
-    questioned. Knowledge deserves to be shared.
-  </p>
-
+<section class="philosophy">
+  <div class="eyebrow">The philosophy</div>
+  <h2>The Philosophy</h2>
+  <div class="motto">Question more. Understand deeper. Think beyond.</div>
+  <p>Ideas deserve to be heard. Opinions deserve to be questioned. Knowledge deserves to be shared.</p>
 </section>
 
-<!-- PROJECT STATUS -->
+<section class="content-section" id="status">
+  <div class="eyebrow">A work in progress</div>
+  <h2>Project Status</h2>
+  <p>Lumen is currently under development.</p>
+  <p>New articles, campaigns, research and creative projects will be added as the platform grows.</p>
+</section>
 
-<section class="section reveal" style="text-align:center">
-
-  <div class="section-label">PROJECT STATUS</div>
-
-  <h2>Just getting started.</h2>
-
-  <p class="section-intro" style="margin:auto">
-    Lumen is currently under development.
-    New articles, campaigns, research and creative
-    projects will be added as the platform grows.
-  </p>
-
+<section class="founder" id="founder">
+  <div class="eyebrow">The person behind the idea</div>
+  <h2>Founder</h2>
+  <p>Created and independently developed by <strong>Aabid Amaan</strong>.</p>
 </section>
 
 </main>
 
 <footer>
-
-  <div class="footer-logo">LUMEN.</div>
-
-  <p>Where Thought Transcends Boundaries.</p>
-
-  <p class="footer-tag">
-    Created and independently developed by Aabid Amaan.
-  </p>
-
-  <p>Ideas are the beginning of every revolution.</p>
-
-  <p class="copyright">
-    © <span id="year"></span> Lumen. All rights reserved.
-  </p>
-
+  <p>LUMEN. — Where Thought Transcends Boundaries.</p>
+  <p>Question more. Understand deeper. Think beyond.</p>
 </footer>
 
 <script>
-
-// FLOWING FLOWERS AND LEAVES
-
-const garden = document.getElementById("petals");
-
-const decorations = ["✿", "❀", "✽", "❋", "🍃"];
-
-for (let i = 0; i < 24; i++) {
-  const petal = document.createElement("span");
-
-  petal.className = "petal";
-  petal.textContent = decorations[
-    Math.floor(Math.random() * decorations.length)
-  ];
-
-  petal.style.left = Math.random() * 100 + "vw";
-  petal.style.fontSize = (12 + Math.random() * 13) + "px";
-  petal.style.color = [
-    "#c78e9b",
-    "#d7b6a6",
-    "#8a9e80",
-    "#b9a276"
-  ][Math.floor(Math.random() * 4)];
-
-  petal.style.setProperty(
-    "--drift",
-    (Math.random() * 180 - 90) + "px"
-  );
-
-  petal.style.setProperty(
-    "--rotation",
-    (Math.random() * 600 - 300) + "deg"
-  );
-
-  petal.style.animationDuration = (12 + Math.random() * 15) + "s";
-  petal.style.animationDelay = (-Math.random() * 25) + "s";
-
-  garden.appendChild(petal);
-}
-
-// MOBILE NAVIGATION
-
 function toggleMenu() {
-  document.getElementById("navigation").classList.toggle("open");
+  document.getElementById("navLinks").classList.toggle("open");
 }
 
-function closeMenu() {
-  document.getElementById("navigation").classList.remove("open");
-}
-
-// SCROLL REVEAL
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("open");
   });
-}, { threshold: 0.08 });
-
-document.querySelectorAll(".reveal").forEach(section => {
-  observer.observe(section);
 });
 
-// CURRENT YEAR
+// Create gentle falling petals
+const petalContainer = document.getElementById("petals");
+const petalSymbols = ["✿", "❀", "✽", "❋"];
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
+for (let i = 0; i < 28; i++) {
+  const petal = document.createElement("span");
+  petal.className = "petal";
+  petal.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+  petal.style.left = Math.random() * 100 + "%";
+  petal.style.animationDuration = (9 + Math.random() * 13) + "s";
+  petal.style.animationDelay = (-Math.random() * 20) + "s";
+  petal.style.fontSize = (11 + Math.random() * 13) + "px";
+  petalContainer.appendChild(petal);
+}
 </script>
 
 </body>
