@@ -4,17 +4,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lumen — Ideas are the beginning of every revolution. An independent platform for social awareness, intellectual discourse, creative expression and research.">
-<title>Lumen | Where Thought Transcends Boundaries</title>
+
+<meta name="description" content="Lumen — Ideas are the beginning of every revolution. An independent platform for social awareness, economics, law, poetry and independent thought.">
+
+<title>LUMEN. — Where Thought Transcends Boundaries</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --cream: #f6f3ec;
-  --paper: #fffefa;
-  --ink: #252721;
-  --muted: #77786e;
-  --gold: #a58a57;
-  --line: #e3ded2;
+  --cream: #faf8f1;
+  --paper: #fffdf8;
+  --green: #536b57;
+  --dark-green: #263d30;
+  --sage: #dce5d7;
+  --pink: #e9c5c5;
+  --gold: #ad9564;
+  --ink: #303b32;
+  --muted: #777d72;
+  --line: #e8e5da;
 }
 
 * {
@@ -31,33 +41,78 @@ html {
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.7;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
 }
+
+a {
+  color: inherit;
+}
+
+/* FALLING FLOWERS AND LEAVES */
+
+#petals {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.petal {
+  position: absolute;
+  top: -35px;
+  opacity: 0;
+  animation: fall linear infinite;
+  user-select: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0,-20px,0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: .7;
+  }
+  85% {
+    opacity: .55;
+  }
+  100% {
+    transform: translate3d(var(--drift),110vh,0)
+      rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+
+/* NAVIGATION */
 
 header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(246,243,236,0.96);
+  z-index: 30;
+  background: rgba(250,248,241,.94);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 
 .navbar {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: auto;
-  padding: 17px 6%;
+  padding: 13px 6%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
+  font-family: 'Playfair Display', serif;
   font-size: 27px;
-  font-weight: bold;
-  letter-spacing: 5px;
+  font-weight: 600;
+  letter-spacing: 4px;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--dark-green);
 }
 
 .logo span {
@@ -66,15 +121,17 @@ header {
 
 nav {
   display: flex;
+  align-items: center;
   gap: 25px;
 }
 
 nav a {
   text-decoration: none;
-  color: var(--ink);
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 1px;
+  color: var(--ink);
+  transition: color .3s;
 }
 
 nav a:hover {
@@ -83,38 +140,62 @@ nav a:hover {
 
 .menu-button {
   display: none;
-  background: none;
+  background: transparent;
   border: 1px solid var(--line);
-  padding: 8px 12px;
+  padding: 5px 12px;
+  font-size: 20px;
+  color: var(--green);
   cursor: pointer;
-  font-size: 18px;
 }
 
+/* HERO */
+
 .hero {
-  min-height: 620px;
-  padding: 110px 8%;
+  min-height: 690px;
+  padding: 110px 8% 120px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  background: var(--paper);
+  position: relative;
+  background:
+    radial-gradient(ellipse at 15% 20%, #e8eddf 0%, transparent 35%),
+    radial-gradient(ellipse at 85% 80%, #f2e1dc 0%, transparent 35%),
+    var(--paper);
+}
+
+.hero-content {
+  max-width: 850px;
+  animation: appear 1.2s ease both;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .eyebrow {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 4px;
-  color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 25px;
 }
 
 .hero h1 {
-  font-size: clamp(45px, 8vw, 86px);
-  font-weight: normal;
-  letter-spacing: 9px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(65px, 12vw, 125px);
+  font-weight: 400;
+  letter-spacing: 12px;
   line-height: 1.2;
+  color: var(--dark-green);
 }
 
 .hero h1 span {
@@ -122,159 +203,310 @@ nav a:hover {
 }
 
 .hero h2 {
-  font-size: clamp(22px, 4vw, 34px);
-  font-weight: normal;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 35px);
+  font-weight: 400;
   font-style: italic;
-  margin-top: 25px;
-  max-width: 850px;
+  margin-top: 18px;
+  line-height: 1.5;
+}
+
+.hero .punchline {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--green);
+  margin-top: 36px;
 }
 
 .hero p {
-  max-width: 630px;
-  margin-top: 25px;
+  max-width: 660px;
+  margin: 20px auto 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.primary-link {
+.explore {
   display: inline-block;
-  margin-top: 35px;
+  margin-top: 36px;
   padding: 13px 30px;
-  background: var(--ink);
-  color: white;
+  border: 1px solid var(--green);
+  color: var(--green);
   text-decoration: none;
-  font-family: Arial, sans-serif;
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 2px;
-  transition: 0.3s;
+  transition: .3s;
 }
 
-.primary-link:hover {
-  background: var(--gold);
+.explore:hover {
+  background: var(--green);
+  color: white;
+  transform: translateY(-3px);
 }
+
+/* SECTIONS */
 
 .section {
-  max-width: 1150px;
+  max-width: 1160px;
   margin: auto;
-  padding: 95px 7%;
+  padding: 105px 7%;
 }
 
 .section-label {
+  font-size: 10px;
+  font-weight: 700;
   color: var(--gold);
-  font-family: Arial, sans-serif;
-  font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 .section h2 {
-  font-size: clamp(30px, 5vw, 46px);
-  font-weight: normal;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 51px);
+  font-weight: 400;
+  color: var(--dark-green);
+  line-height: 1.3;
   margin: 13px 0 20px;
 }
 
 .section-intro {
-  max-width: 720px;
+  max-width: 750px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 16px;
 }
+
+/* DOMAIN CARDS */
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-  margin-top: 42px;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 24px;
+  margin-top: 48px;
 }
 
 .card {
+  position: relative;
   background: var(--paper);
-  padding: 35px;
   border: 1px solid var(--line);
-  transition: 0.3s;
+  padding: 38px;
+  text-decoration: none;
+  display: block;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+  overflow: hidden;
+}
+
+.card::after {
+  content: "✿";
+  position: absolute;
+  right: 15px;
+  bottom: -22px;
+  font-size: 100px;
+  color: var(--sage);
+  opacity: .35;
+  pointer-events: none;
+  transition: transform .5s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold);
+  transform: translateY(-7px);
+  border-color: #b9c7b2;
+  box-shadow: 0 14px 35px rgba(48,65,48,.08);
+}
+
+.card:hover::after {
+  transform: rotate(25deg) scale(1.15);
 }
 
 .card .number {
-  color: var(--gold);
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 2px;
+  color: var(--gold);
 }
 
 .card h3 {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 15px 0 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  font-weight: 400;
+  color: var(--dark-green);
+  margin: 16px 0 12px;
+}
+
+.card .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--green);
+  margin-bottom: 13px;
 }
 
 .card p {
   color: var(--muted);
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.card a {
+.card .arrow {
   display: inline-block;
-  color: var(--gold);
-  margin-top: 20px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  text-decoration: none;
-  letter-spacing: 1px;
+  margin-top: 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--green);
 }
 
-.highlight {
-  background: var(--ink);
-  color: var(--cream);
-  padding: 85px 8%;
-  text-align: center;
+/* CONTENT PANELS */
+
+.content-panel {
+  padding: 75px 8%;
+  background: #e9eee4;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.highlight h2 {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: normal;
+.content-panel.pink {
+  background: #f4eae5;
+}
+
+.panel-inner {
+  max-width: 900px;
+  margin: auto;
+}
+
+.panel-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 45px);
+  font-weight: 400;
+  color: var(--dark-green);
+  margin-bottom: 22px;
+}
+
+.panel-inner p {
+  color: #667064;
+  margin-bottom: 15px;
+}
+
+.panel-inner ul {
+  padding-left: 22px;
+  margin: 15px 0 22px;
+  color: #59675b;
+}
+
+.panel-inner li {
+  padding: 3px 0;
+}
+
+.panel-inner .closing {
+  font-family: 'Playfair Display', serif;
   font-style: italic;
+  font-size: 18px;
+  color: var(--green);
+  margin-top: 25px;
 }
 
-.highlight p {
-  max-width: 650px;
+/* WHY LUMEN */
+
+.why {
+  padding: 110px 8%;
+  text-align: center;
+  background: var(--dark-green);
+  color: var(--cream);
+}
+
+.why h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(35px, 6vw, 55px);
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+
+.why p {
+  max-width: 700px;
+  margin: 14px auto;
+  color: #e1e5dc;
+  font-size: 16px;
+}
+
+.why .final-line {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 21px;
+  color: #e6d5b0;
+  margin-top: 30px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+  padding: 100px 8%;
+  text-align: center;
+  background: var(--paper);
+}
+
+.philosophy h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(29px, 5vw, 43px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--green);
+}
+
+.philosophy p {
+  max-width: 700px;
   margin: 20px auto 0;
-  color: #c9c6bc;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  margin-top: 35px;
-}
-
-.about-content p {
   color: var(--muted);
 }
 
+/* FOOTER */
+
 footer {
-  padding: 45px 7%;
+  padding: 65px 8% 35px;
+  background: #e8ede3;
   text-align: center;
-  border-top: 1px solid var(--line);
 }
 
-footer .footer-logo {
-  font-size: 24px;
-  letter-spacing: 5px;
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  letter-spacing: 6px;
+  color: var(--dark-green);
 }
 
 footer p {
-  margin-top: 10px;
   color: var(--muted);
   font-size: 13px;
+  margin-top: 10px;
 }
 
-@media(max-width: 700px) {
+footer .footer-tag {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--green);
+  margin-top: 22px;
+}
+
+footer .copyright {
+  margin-top: 35px;
+  font-size: 11px;
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
   .navbar {
+    padding: 12px 6%;
     flex-wrap: wrap;
   }
 
@@ -284,10 +516,11 @@ footer p {
 
   nav {
     display: none;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
+    align-items: stretch;
     gap: 0;
-    padding-top: 15px;
+    padding-top: 12px;
   }
 
   nav.open {
@@ -300,17 +533,41 @@ footer p {
   }
 
   .hero {
-    min-height: 540px;
+    min-height: 610px;
     padding: 85px 7%;
+  }
+
+  .hero h1 {
+    letter-spacing: 6px;
+  }
+
+  .hero .punchline {
+    font-size: 18px;
   }
 
   .cards {
     grid-template-columns: 1fr;
   }
 
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .section {
+    padding: 75px 7%;
+  }
+
+  .card {
+    padding: 30px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .petal {
+    display: none;
   }
 }
 </style>
@@ -318,182 +575,396 @@ footer p {
 
 <body>
 
+<div id="petals" aria-hidden="true"></div>
+
 <header>
   <div class="navbar">
-    <a href="#home" class="logo">LUMEN<span>.</span></a>
+    <a class="logo" href="#home">LUMEN<span>.</span></a>
 
-    <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+    <button class="menu-button" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
 
     <nav id="navigation">
       <a href="#home" onclick="closeMenu()">HOME</a>
-      <a href="#mission" onclick="closeMenu()">OUR VISION</a>
       <a href="#social" onclick="closeMenu()">SOCIAL VOICE</a>
-      <a href="#research" onclick="closeMenu()">RESEARCH</a>
-      <a href="#about" onclick="closeMenu()">ABOUT</a>
+      <a href="#economics" onclick="closeMenu()">ECONOMICS</a>
+      <a href="#law" onclick="closeMenu()">LAW</a>
+      <a href="#about" onclick="closeMenu()">ABOUT ME</a>
     </nav>
   </div>
 </header>
 
 <main>
+
+<!-- HOMEPAGE -->
+
 <section class="hero" id="home">
-  <div class="eyebrow">An Independent Multidisciplinary Platform</div>
+  <div class="hero-content">
 
-  <h1>LUMEN<span>.</span></h1>
+    <div class="eyebrow">An Independent Multidisciplinary Platform</div>
 
-  <h2>Ideas are the beginning of every revolution.</h2>
+    <h1>LUMEN<span>.</span></h1>
 
-  <p>
-    A space for questioning conventions, exploring perspectives
-    and bringing meaningful ideas into the world.
-    Where thought transcends boundaries.
-  </p>
+    <h2>Where Thought Transcends Boundaries.</h2>
 
-  <a href="#mission" class="primary-link">EXPLORE LUMEN ↓</a>
-</section>
+    <div class="punchline">
+      Ideas are the beginning of every revolution.
+    </div>
 
-<section class="section" id="mission">
-  <div class="section-label">01 / The Vision</div>
-
-  <h2>Beyond a single perspective.</h2>
-
-  <p class="section-intro">
-    The world is far too complex to be understood through a single
-    discipline, a singular narrative or an unquestioned perspective.
-    Lumen brings together different dimensions of thought under one
-    independent platform.
-  </p>
-
-  <div class="cards">
-    <article class="card">
-      <div class="number">01 / EXPRESSION</div>
-      <h3>Words & Literature</h3>
-      <p>Poetry, writing, reflection and creative expression that
-      give form to thoughts and experiences.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">02 / SOCIETY</div>
-      <h3>Awareness & Equality</h3>
-      <p>Exploring feminism, human rights, equality, social justice
-      and the issues shaping our society.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">03 / KNOWLEDGE</div>
-      <h3>Law & Economics</h3>
-      <p>Research, analysis and thoughtful exploration of legal,
-      economic and public affairs.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">04 / PERSPECTIVE</div>
-      <h3>Ideas & Independent Thought</h3>
-      <p>Questions, discussions and perspectives that encourage
-      intellectual curiosity and informed dialogue.</p>
-    </article>
-  </div>
-</section>
-
-<section class="highlight" id="mission-quote">
-  <h2>"Progress begins with a question."</h2>
-  <p>
-    To question is to examine. To understand is to evolve.
-    And to act is to give an idea the possibility of becoming change.
-  </p>
-</section>
-
-<section class="section" id="social">
-  <div class="section-label">02 / Social Voice</div>
-
-  <h2>Words with a purpose.</h2>
-
-  <p class="section-intro">
-    Beyond awareness as a passing conversation.
-    A space dedicated to examining social realities,
-    challenging prejudice and encouraging thoughtful discourse.
-  </p>
-
-  <div class="cards">
-    <article class="card">
-      <div class="number">SOCIETY & EQUALITY</div>
-      <h3>Feminism & Human Rights</h3>
-      <p>Exploring equality, dignity, representation and
-      the principles of a just society.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">CREATIVE EXPRESSION</div>
-      <h3>Poetry & Awareness</h3>
-      <p>Using literature and creative expression to
-      communicate ideas, experiences and social realities.</p>
-    </article>
-  </div>
-</section>
-
-<section class="section" id="research">
-  <div class="section-label">03 / Knowledge & Research</div>
-
-  <h2>Understanding the structures that shape our world.</h2>
-
-  <p class="section-intro">
-    An evolving initiative exploring law, economics,
-    institutions, governance and the relationship between
-    individuals and society.
-  </p>
-
-  <div class="cards">
-    <article class="card">
-      <div class="number">LEGAL STUDIES</div>
-      <h3>Law & Justice</h3>
-      <p>Exploring legal principles, rights, justice and
-      the institutions that uphold the rule of law.</p>
-    </article>
-
-    <article class="card">
-      <div class="number">ECONOMIC THOUGHT</div>
-      <h3>Economics & Society</h3>
-      <p>Examining economic systems, public policy,
-      development and their social implications.</p>
-    </article>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="section-label">04 / The Individual</div>
-
-  <h2>Behind the ideas.</h2>
-
-  <div class="about-content">
     <p>
-      Lumen is an independently developed platform shaped by
-      curiosity, critical thought and a desire to explore
-      the many dimensions of the world.
+      The world has enough people who follow the crowd.
+      Lumen is for those who question it.
     </p>
 
     <p>
-      Its creator's interests extend across literature,
-      social awareness, academic exploration, law,
-      economics and creative expression.
-      This section will grow to reflect the person and
-      journey behind the platform.
+      Lumen is an independent platform built to share ideas,
+      spread awareness, explore important issues and make
+      knowledge easier to understand.
     </p>
+
+    <p>
+      From poetry and social campaigns to law and economics,
+      this is a space for different interests, different
+      perspectives and one common purpose: to think beyond
+      what we're told.
+    </p>
+
+    <a class="explore" href="#domains">EXPLORE LUMEN ↓</a>
   </div>
 </section>
 
-<section class="highlight">
+<!-- FOUR DOMAINS -->
+
+<section class="section" id="domains">
+  <div class="section-label">A WORLD OF DIFFERENT IDEAS</div>
+  <h2>What you'll find here.</h2>
+
+  <p class="section-intro">
+    Four different spaces. Four different areas of thought.
+    One platform.
+  </p>
+
+  <div class="cards">
+
+    <a class="card" href="#social">
+      <div class="number">01 / SOCIAL VOICE</div>
+      <h3>The Social Voice</h3>
+      <div class="subtitle">Words, awareness and a little rebellion.</div>
+      <p>
+        Feminism, human rights, social justice, poetry,
+        creative writing and campaigns that deserve attention.
+      </p>
+      <span class="arrow">EXPLORE THIS SECTION →</span>
+    </a>
+
+    <a class="card" href="#economics">
+      <div class="number">02 / ECONOMICS</div>
+      <h3>The Economics Desk</h3>
+      <div class="subtitle">Understanding the systems that shape our lives.</div>
+      <p>
+        Economic systems, policies, inflation, inequality,
+        research and the relationship between money and society.
+      </p>
+      <span class="arrow">EXPLORE THIS SECTION →</span>
+    </a>
+
+    <a class="card" href="#law">
+      <div class="number">03 / LAW</div>
+      <h3>The Law Desk</h3>
+      <div class="subtitle">Know your rights. Understand the rules.</div>
+      <p>
+        Fundamental rights, constitutional principles,
+        legal awareness, justice and legal research.
+      </p>
+      <span class="arrow">EXPLORE THIS SECTION →</span>
+    </a>
+
+    <a class="card" href="#about">
+      <div class="number">04 / THE INDIVIDUAL</div>
+      <h3>The Person Behind Lumen</h3>
+      <div class="subtitle">Every platform begins with a person and an idea.</div>
+      <p>
+        Personal interests, academic aspirations, achievements,
+        creative interests and reflections.
+      </p>
+      <span class="arrow">GET TO KNOW ME →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SOCIAL VOICE -->
+
+<section class="content-panel reveal" id="social">
+  <div class="panel-inner">
+
+    <div class="section-label">01 / THE SOCIAL VOICE</div>
+
+    <h2>Words, awareness and a little rebellion.</h2>
+
+    <p>
+      Not everything needs to be dressed up in complicated
+      words to make a point.
+    </p>
+
+    <p>This section covers:</p>
+
+    <ul>
+      <li>Feminism and gender equality.</li>
+      <li>Human rights and social justice.</li>
+      <li>Social awareness campaigns.</li>
+      <li>Poetry and creative writing.</li>
+      <li>Personal opinions and social commentary.</li>
+      <li>Issues that deserve more attention.</li>
+    </ul>
+
+    <p class="closing">
+      Some things need research. Some need discussion.
+      And some simply need to be said.
+    </p>
+
+  </div>
+</section>
+
+<!-- ECONOMICS -->
+
+<section class="section reveal" id="economics">
+
+  <div class="section-label">02 / THE ECONOMICS DESK</div>
+
+  <h2>Understanding the systems that shape our lives.</h2>
+
+  <p class="section-intro">
+    Economics isn't just about money. It affects almost
+    everything around us.
+  </p>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="number">ECONOMIC SYSTEMS</div>
+      <h3>Policies & Systems</h3>
+      <p>Economic systems, policies and the decisions
+      that influence everyday life.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">GLOBAL & NATIONAL ECONOMIES</div>
+      <h3>Money & Society</h3>
+      <p>Inflation, financial issues, poverty, inequality
+      and the relationship between money, power and society.</p>
+    </article>
+
+  </div>
+
+  <p class="section-intro" style="margin-top:35px">
+    This section explores:
+  </p>
+
+  <ul style="padding-left:22px; margin-top:15px; color:var(--muted)">
+    <li>Economic systems and policies.</li>
+    <li>Inflation and financial issues.</li>
+    <li>Global and national economies.</li>
+    <li>Poverty and inequality.</li>
+    <li>Economic research and analysis.</li>
+    <li>The relationship between money, power and society.</li>
+  </ul>
+
+  <p class="section-intro" style="margin-top:25px">
+    The aim is simple: understand the numbers, question
+    the decisions and look beyond the headlines.
+  </p>
+
+</section>
+
+<!-- LAW -->
+
+<section class="content-panel pink reveal" id="law">
+  <div class="panel-inner">
+
+    <div class="section-label">03 / THE LAW DESK</div>
+
+    <h2>Know your rights. Understand the rules. Question the system.</h2>
+
+    <p>
+      Law affects everyone, whether they realise it or not.
+    </p>
+
+    <p>This section focuses on:</p>
+
+    <ul>
+      <li>Fundamental rights and freedoms.</li>
+      <li>Constitutional principles.</li>
+      <li>Legal awareness.</li>
+      <li>Justice and equality before the law.</li>
+      <li>Important laws and legal developments.</li>
+      <li>Legal research and analysis.</li>
+    </ul>
+
+    <p class="closing">
+      Because knowing the law shouldn't be limited to
+      people who study it.
+    </p>
+
+  </div>
+</section>
+
+<!-- ABOUT ME -->
+
+<section class="section reveal" id="about">
+
+  <div class="section-label">04 / THE PERSON BEHIND LUMEN</div>
+
+  <h2>Every platform begins with a person and an idea.</h2>
+
+  <p class="section-intro">
+    A little about the person who started this project.
+  </p>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="number">THE INDIVIDUAL</div>
+      <h3>Personal Interests</h3>
+      <p>Personal interests and opinions, creative interests
+      and personal reflections.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">THE JOURNEY</div>
+      <h3>Growth & Ambition</h3>
+      <p>Academic journey and aspirations, achievements
+      and projects.</p>
+    </article>
+
+  </div>
+
+  <p class="section-intro" style="margin-top:35px">
+    Lumen is more than a collection of subjects.
+    It is also a record of curiosity, growth and ambition.
+  </p>
+
+</section>
+
+<!-- WHY LUMEN -->
+
+<section class="why reveal">
+
+  <div class="section-label" style="color:#d9c39a">THE PURPOSE</div>
+
+  <h2>Why Lumen?</h2>
+
+  <p>Because asking questions should never be discouraged.</p>
+
+  <p>Because awareness should be accessible.</p>
+
+  <p>Because knowledge shouldn't be hidden behind complicated language.</p>
+
+  <p>
+    And because having an opinion means very little without
+    the willingness to understand what you're talking about.
+  </p>
+
+  <p class="final-line">
+    We don't claim to have every answer.
+    We believe in asking better questions.
+  </p>
+
+</section>
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy reveal">
+
+  <div class="section-label">THE PHILOSOPHY</div>
+
   <h2>Question more. Understand deeper. Think beyond.</h2>
-  <p>Where thought transcends boundaries.</p>
+
+  <p>
+    Ideas deserve to be heard. Opinions deserve to be
+    questioned. Knowledge deserves to be shared.
+  </p>
+
 </section>
+
+<!-- PROJECT STATUS -->
+
+<section class="section reveal" style="text-align:center">
+
+  <div class="section-label">PROJECT STATUS</div>
+
+  <h2>Just getting started.</h2>
+
+  <p class="section-intro" style="margin:auto">
+    Lumen is currently under development.
+    New articles, campaigns, research and creative
+    projects will be added as the platform grows.
+  </p>
+
+</section>
+
 </main>
 
 <footer>
+
   <div class="footer-logo">LUMEN.</div>
-  <p>An independent multidisciplinary platform.</p>
+
+  <p>Where Thought Transcends Boundaries.</p>
+
+  <p class="footer-tag">
+    Created and independently developed by Aabid Amaan.
+  </p>
+
   <p>Ideas are the beginning of every revolution.</p>
-  <p>© <span id="year"></span> Lumen. All rights reserved.</p>
+
+  <p class="copyright">
+    © <span id="year"></span> Lumen. All rights reserved.
+  </p>
+
 </footer>
 
 <script>
+
+// FLOWING FLOWERS AND LEAVES
+
+const garden = document.getElementById("petals");
+
+const decorations = ["✿", "❀", "✽", "❋", "🍃"];
+
+for (let i = 0; i < 24; i++) {
+  const petal = document.createElement("span");
+
+  petal.className = "petal";
+  petal.textContent = decorations[
+    Math.floor(Math.random() * decorations.length)
+  ];
+
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.fontSize = (12 + Math.random() * 13) + "px";
+  petal.style.color = [
+    "#c78e9b",
+    "#d7b6a6",
+    "#8a9e80",
+    "#b9a276"
+  ][Math.floor(Math.random() * 4)];
+
+  petal.style.setProperty(
+    "--drift",
+    (Math.random() * 180 - 90) + "px"
+  );
+
+  petal.style.setProperty(
+    "--rotation",
+    (Math.random() * 600 - 300) + "deg"
+  );
+
+  petal.style.animationDuration = (12 + Math.random() * 15) + "s";
+  petal.style.animationDelay = (-Math.random() * 25) + "s";
+
+  garden.appendChild(petal);
+}
+
+// MOBILE NAVIGATION
+
 function toggleMenu() {
   document.getElementById("navigation").classList.toggle("open");
 }
@@ -502,7 +973,26 @@ function closeMenu() {
   document.getElementById("navigation").classList.remove("open");
 }
 
-document.getElementById("year").textContent = new Date().getFullYear();
+// SCROLL REVEAL
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll(".reveal").forEach(section => {
+  observer.observe(section);
+});
+
+// CURRENT YEAR
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
 </script>
 
 </body>
