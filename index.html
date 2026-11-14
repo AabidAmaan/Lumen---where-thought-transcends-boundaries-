@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lumen — Ideas are the beginning of every revolution. An independent platform for social awareness, intellectual discourse, creative expression and research.">
+<title>Lumen | Where Thought Transcends Boundaries</title>
+
+<style>
+:root {
+  --cream: #f6f3ec;
+  --paper: #fffefa;
+  --ink: #252721;
+  --muted: #77786e;
+  --gold: #a58a57;
+  --line: #e3ded2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246,243,236,0.96);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.hero {
+  min-height: 620px;
+  padding: 110px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--paper);
+}
+
+.eyebrow {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 8vw, 86px);
+  font-weight: normal;
+  letter-spacing: 9px;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero h2 {
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 25px;
+  max-width: 850px;
+}
+
+.hero p {
+  max-width: 630px;
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.primary-link {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 13px 30px;
+  background: var(--ink);
+  color: white;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.primary-link:hover {
+  background: var(--gold);
+}
+
+.section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 95px 7%;
+}
+
+.section-label {
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section h2 {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: normal;
+  margin: 13px 0 20px;
+}
+
+.section-intro {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 42px;
+}
+
+.card {
+  background: var(--paper);
+  padding: 35px;
+  border: 1px solid var(--line);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.card .number {
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.card h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 15px 0 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.card a {
+  display: inline-block;
+  color: var(--gold);
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 85px 8%;
+  text-align: center;
+}
+
+.highlight h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: normal;
+  font-style: italic;
+}
+
+.highlight p {
+  max-width: 650px;
+  margin: 20px auto 0;
+  color: #c9c6bc;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 35px;
+}
+
+.about-content p {
+  color: var(--muted);
+}
+
+footer {
+  padding: 45px 7%;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+footer .footer-logo {
+  font-size: 24px;
+  letter-spacing: 5px;
+}
+
+footer p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media(max-width: 700px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 15px;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero {
+    min-height: 540px;
+    padding: 85px 7%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home" class="logo">LUMEN<span>.</span></a>
+
+    <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+
+    <nav id="navigation">
+      <a href="#home" onclick="closeMenu()">HOME</a>
+      <a href="#mission" onclick="closeMenu()">OUR VISION</a>
+      <a href="#social" onclick="closeMenu()">SOCIAL VOICE</a>
+      <a href="#research" onclick="closeMenu()">RESEARCH</a>
+      <a href="#about" onclick="closeMenu()">ABOUT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="eyebrow">An Independent Multidisciplinary Platform</div>
+
+  <h1>LUMEN<span>.</span></h1>
+
+  <h2>Ideas are the beginning of every revolution.</h2>
+
+  <p>
+    A space for questioning conventions, exploring perspectives
+    and bringing meaningful ideas into the world.
+    Where thought transcends boundaries.
+  </p>
+
+  <a href="#mission" class="primary-link">EXPLORE LUMEN ↓</a>
+</section>
+
+<section class="section" id="mission">
+  <div class="section-label">01 / The Vision</div>
+
+  <h2>Beyond a single perspective.</h2>
+
+  <p class="section-intro">
+    The world is far too complex to be understood through a single
+    discipline, a singular narrative or an unquestioned perspective.
+    Lumen brings together different dimensions of thought under one
+    independent platform.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <div class="number">01 / EXPRESSION</div>
+      <h3>Words & Literature</h3>
+      <p>Poetry, writing, reflection and creative expression that
+      give form to thoughts and experiences.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">02 / SOCIETY</div>
+      <h3>Awareness & Equality</h3>
+      <p>Exploring feminism, human rights, equality, social justice
+      and the issues shaping our society.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">03 / KNOWLEDGE</div>
+      <h3>Law & Economics</h3>
+      <p>Research, analysis and thoughtful exploration of legal,
+      economic and public affairs.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">04 / PERSPECTIVE</div>
+      <h3>Ideas & Independent Thought</h3>
+      <p>Questions, discussions and perspectives that encourage
+      intellectual curiosity and informed dialogue.</p>
+    </article>
+  </div>
+</section>
+
+<section class="highlight" id="mission-quote">
+  <h2>"Progress begins with a question."</h2>
+  <p>
+    To question is to examine. To understand is to evolve.
+    And to act is to give an idea the possibility of becoming change.
+  </p>
+</section>
+
+<section class="section" id="social">
+  <div class="section-label">02 / Social Voice</div>
+
+  <h2>Words with a purpose.</h2>
+
+  <p class="section-intro">
+    Beyond awareness as a passing conversation.
+    A space dedicated to examining social realities,
+    challenging prejudice and encouraging thoughtful discourse.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <div class="number">SOCIETY & EQUALITY</div>
+      <h3>Feminism & Human Rights</h3>
+      <p>Exploring equality, dignity, representation and
+      the principles of a just society.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">CREATIVE EXPRESSION</div>
+      <h3>Poetry & Awareness</h3>
+      <p>Using literature and creative expression to
+      communicate ideas, experiences and social realities.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="research">
+  <div class="section-label">03 / Knowledge & Research</div>
+
+  <h2>Understanding the structures that shape our world.</h2>
+
+  <p class="section-intro">
+    An evolving initiative exploring law, economics,
+    institutions, governance and the relationship between
+    individuals and society.
+  </p>
+
+  <div class="cards">
+    <article class="card">
+      <div class="number">LEGAL STUDIES</div>
+      <h3>Law & Justice</h3>
+      <p>Exploring legal principles, rights, justice and
+      the institutions that uphold the rule of law.</p>
+    </article>
+
+    <article class="card">
+      <div class="number">ECONOMIC THOUGHT</div>
+      <h3>Economics & Society</h3>
+      <p>Examining economic systems, public policy,
+      development and their social implications.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-label">04 / The Individual</div>
+
+  <h2>Behind the ideas.</h2>
+
+  <div class="about-content">
+    <p>
+      Lumen is an independently developed platform shaped by
+      curiosity, critical thought and a desire to explore
+      the many dimensions of the world.
+    </p>
+
+    <p>
+      Its creator's interests extend across literature,
+      social awareness, academic exploration, law,
+      economics and creative expression.
+      This section will grow to reflect the person and
+      journey behind the platform.
+    </p>
+  </div>
+</section>
+
+<section class="highlight">
+  <h2>Question more. Understand deeper. Think beyond.</h2>
+  <p>Where thought transcends boundaries.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-logo">LUMEN.</div>
+  <p>An independent multidisciplinary platform.</p>
+  <p>Ideas are the beginning of every revolution.</p>
+  <p>© <span id="year"></span> Lumen. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navigation").classList.toggle("open");
+}
+
+function closeMenu() {
+  document.getElementById("navigation").classList.remove("open");
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
